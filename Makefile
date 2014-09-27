@@ -59,7 +59,7 @@ clean:
 
 release_filelist:
 	find * -maxdepth 0 -type f | grep -v ".zip"
-	find build -type f
+	find build -type f | grep -v "include" 
 	@for subdir in $(SUBDIRS); do \
 		$(MAKE) -C $$subdir $@ | sed -e "s/^/$$subdir\//" || true; \
 	done
