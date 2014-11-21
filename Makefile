@@ -59,10 +59,10 @@ clean:
 
 release_filelist:
 	find * -maxdepth 0 -type f | grep -v ".zip"
-	find build -type f | grep -v "include" 
+	find build -type f | grep -v "include" | grep -v "snopt" | grep -v "snprint.lib" | grep -v "snblas.lib"
 	@for subdir in $(SUBDIRS); do \
 		$(MAKE) -C $$subdir $@ | sed -e "s/^/$$subdir\//" || true; \
 	done
 
-release_zip:
+release_zip: all
 	zip drake-distro `$(MAKE) release_filelist`
