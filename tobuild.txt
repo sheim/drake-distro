@@ -1,6 +1,9 @@
 # list of subdirectories to build, one one each line.  Empty lines
 # and lines starting with '#' are ignored
 
+#gurobi
+#ipopt
+mosek
 lcm
 libbot
 eigen
